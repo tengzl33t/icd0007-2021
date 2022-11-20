@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ $pageTitle }}</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body id="{{ $pageID }}">
+<table>
+  <tr>
+    <td>
+      <nav>
+        <table>
+          <tr>
+            <td>
+              <a href="?cmd=show_book_list" id="book-list-link">Raamatud</a> <span>|</span>
+              <a href="?cmd=show_book_form" id="book-form-link">Lisa raamat</a> <span>|</span>
+              <a href="?cmd=show_author_list" id="author-list-link">Autorid</a> <span>|</span>
+              <a href="?cmd=show_author_form" id="author-form-link">Lisa autor</a>
+            </td>
+          </tr>
+        </table>
+      </nav>
+      <main tpl-include="{{ $contentPath }}"></main>
+      <footer>
+        <table>
+          <tr>
+            <td>
+              ICD0007
+            </td>
+          </tr>
+        </table>
+      </footer>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

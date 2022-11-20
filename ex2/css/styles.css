@@ -1,0 +1,14 @@
+.c, p.b {
+    color: blue;
+    font-style: italic;
+}
+
+p span {
+    color: red;
+    font-style: normal;
+}
+
+.a {
+    color: green;
+    font-style: italic;
+}

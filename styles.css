@@ -1,0 +1,38 @@
+body, footer{
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav {
+    border-radius: 5px;
+    background-color:#CDEDF6;
+    padding: 5px;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+footer {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #CDEDF6;
+    position: absolute;
+    bottom: 10px;
+}
+table{
+    width: 100%;
+}
+main table{
+    padding-top: 10px;
+    margin: auto;
+    horiz-align: right;
+    width: 60%;
+}
+
+.score-filled {
+    color: darkorange;
+}
+
+.score-empty {
+    color: lightgray;
+}

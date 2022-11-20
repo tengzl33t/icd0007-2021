@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <p class="a">1</p> <!-- green, italic  -->
+
+    <p><span class="b">2</span></p> <!-- red, normal  -->
+
+    <span class="a">3</span> <!-- green, italic  -->
+
+    <div class="c">4</div> <!-- blue, italic  -->
+
+    <p class="b">5</p> <!-- blue, italic  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        let correct = 0;
+
+        correct += style('1', 'green', 'italic');
+        correct += style('2', 'red', 'normal');
+        correct += style('3', 'green', 'italic');
+        correct += style('4', 'blue', 'italic');
+        correct += style('5', 'blue', 'italic');
+
+        let correctToPoints = [0, 1, 2, 3, 4, 5];
+
+        document.write(`${correctToPoints[correct]} of 5 correct`);
+
+        function style(number, color, fontStyle) {
+            let style = findStyle(document, number);
+            return (style.fontStyle === fontStyle
+                && rgbToColor(style.color) === color) ? 1 : 0;
+        }
+
+        function findStyle(node, num) {
+            if (node.nodeType === 3 && node.nodeValue === num) {
+                return getComputedStyle(node.parentNode);
+            }
+
+            for (let child of node.childNodes) {
+                let style = findStyle(child, num);
+                if (style) {
+                    return style;
+                }
+            }
+        }
+
+        function rgbToColor(rgbString) {
+            let [r, g, b] = rgbString
+                .replace(/[^\d,]/g, '')
+                .split(',')
+                .map(string => parseInt(string))
+                .map(num => Math.min(1, num));
+
+            return ['black', 'blue', 'green', undefined, 'red'][4 * r + 2 * g + b];
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<ul class="alert" tpl-if="$saved">
+        <li>Book saved successfully!</li>
+</ul>
+<ul class="alert" tpl-if="$deleted">
+    <li>Book deleted!</li>
+</ul>
+<table>
+    <tr>
+        <td><b>Pealkiri</b></td>
+        <td><b>Autorid</b></td>
+        <td><b>Hinne</b></td>
+    </tr>
+    <tpl tpl-foreach="$books as $book">
+        <tr>
+            <td><a href="?cmd=show_book_edit&id={{ $book->id }}">{{ $book->title }}</a></td>
+            <td>
+                <tpl tpl-foreach="$book->authors as $author">
+                    {{ $author }}<tpl tpl-if="!$last">, </tpl>
+                </tpl>
+            </td>
+            <td class="score-empty">
+                <tpl tpl-foreach="range(1, 5) as $mark" tpl-trim-contents>
+                    <span tpl-class="score-filled if $book->mark >= $mark">&#9733;</span>
+                </tpl>
+            </td>
+        </tr>
+    </tpl>
+</table>
+
